@@ -1,0 +1,46 @@
+public class InterpolacjaLagrange {
+
+    int n = 5; //ilosc wielomianow
+    int x = 2; //zmienna poczatkowa x do wzoru
+    int[] tabx = {-5, -4, -1, 3, 5}; //x0 x1 x2
+    int[] taby = {975, 433, 7, -1, 235}; //y0 y1 y2
+
+    void suma() {
+        double zlicz = 0;
+        for (int i = 0; i < n; i++) {
+            zlicz = zlicz + dodaj(i);
+        }
+        System.out.println(zlicz);
+    }
+
+    double dodaj(int i) {
+        double a = 1;
+        for (int j = 0; j < n; j++) {
+            if (j != i) {
+                a = a * (x - tabx[j]) / (tabx[i] - tabx[j]);
+            }
+        }
+        a = a * taby[i];
+        return a;
+    }
+
+    void iloczyn() {
+        double a = 0;
+        double liczydlo = 0;
+        for (int i = 0; i < n; i++) {
+            a = 1;
+            for (int j = 0; j < n; j++) {
+                if (j != i) {
+                    a = a * (x - tabx[j]) / (tabx[i] - tabx[j]);
+                }
+            }
+            a = a * taby[i];
+            liczydlo = liczydlo + a;
+        }
+    }
+
+    public static void main(String[] args) {
+        InterpolacjaLagrange interpolacja1 = new InterpolacjaLagrange();
+        interpolacja1.suma();
+    }
+}
