@@ -24,21 +24,6 @@ public class InterpolacjaLagrange {
         return a;
     }
 
-    void iloczyn() {
-        double a = 0;
-        double liczydlo = 0;
-        for (int i = 0; i < n; i++) {
-            a = 1;
-            for (int j = 0; j < n; j++) {
-                if (j != i) {
-                    a = a * (x - tabx[j]) / (tabx[i] - tabx[j]);
-                }
-            }
-            a = a * taby[i];
-            liczydlo = liczydlo + a;
-        }
-    }
-
     public static void main(String[] args) {
         InterpolacjaLagrange interpolacja1 = new InterpolacjaLagrange();
         interpolacja1.suma();
